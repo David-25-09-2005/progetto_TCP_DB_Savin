@@ -1,0 +1,97 @@
+"""
+
+
+
+def db_get(parametri):
+    conn = mysql.connector.connect(
+        host="10.10.0.10",
+        user="david_savin",
+        password="savin1234",
+        database="5ATepsit",
+        port=3306,
+        # voi qui mettete la porta 3306!! quella di default per mySQL, io ho dovuto mettere la 3307 perche la mia 3306 era gia occupata dal database SQL sul mio PC!
+    )
+
+    cur = conn.cursor()
+    cur.execute(parametri)
+    conn.commit()
+    # si chiama una funzione di libreria passando i parametri di ricerca dell'utente. esempio controlla_caratteri(nome)
+    clausole = ""
+    # for key,value in parametri.items():
+    #    clausole += f"and {key} = '{value}' "
+
+    query = f"SELECT * FROM dipendenti_david_savin where 1=1 {clausole}"
+    print(query)
+    cur.execute(query)
+    dati = cur.fetchall()
+    print(dati)
+    return dati
+
+
+def read(connessione, parametri):
+    conn = mysql.connector.connect(
+        host="127.0.0.1",
+        user="david_savin",
+        password="savin1234",
+        database="5ATepsit",
+        port=3306,
+    )
+
+    query = "SELECT * FROM zone_di_lavoro_david_savin "
+    cur = conn.cursor()
+    connessione.send("su che tabella vuoi cercare: C=clienti, Z=zone di lavoro".encode())
+    data = connessione.recv(1024).decode()
+    # inserisci gestione filtri di ricerca
+    dati_query = fa.list_to_bytes(db_get(query))
+    dati = cur.execute(query)
+
+    dati_formattati = dati_query.fa.list_to_bytes(data)
+    print(dati_formattati.decode())
+
+
+def db_set(data):
+    conn = mysql.connector.connect(
+        host="10.10.0.10",
+        user="david_savin",
+        password="savin1234",
+        database="5ATepsit",
+        port=3306,
+    )
+
+def db_update(data):
+    conn = mysql.connector.connect(
+        host="10.10.0.10",
+        user="david_savin",
+        password="savin1234",
+        database="5ATepsit",
+        port=3306,
+    )
+
+    return
+
+
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+def db_delete(data):
+    conn = mysql.connector.connect(
+        host="10.10.0.10",
+        user="david_savin",
+        password="savin",
+        database="mysql",
+        port=3306,
+        # voi qui mettete la porta 3306!! quella di default per mySQL, io ho dovuto mettere la 3307 perche la mia 3306 era gia occupata dal database SQL sul mio PC!
+    )
+
+    cur = conn.cursor()
+
+    # si chiama una funzione di libreria passando i parametri di ricerca dell'utente. esempio controlla_caratteri(nome)
+    query = f"DELETE FROM clienti_david_savin where nome= '{data}' "
+    cur.execute(query)
+    conn.commit()
+
+    return
+
+
+
+
+"""
