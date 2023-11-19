@@ -14,4 +14,3 @@ cd progetto_TCP_DB_Savin
 
 ## 4) avviare il file client_progetto_tcp.py
 
-
