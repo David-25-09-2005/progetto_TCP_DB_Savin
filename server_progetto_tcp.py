@@ -140,7 +140,7 @@ def read(connessione, tabella):
 
 
 
-def db_update(connessione, tabella, campo, id_dipendente):
+def db_update(connessione, tabell, campo, id_dipendente):
     """
     conn = mysql.connector.connect(
         host="10.10.0.10",
@@ -188,7 +188,7 @@ def db_delete(data):
     return "eliminato"
 
 # tramite l’ID
-def db_create(connessione, tabella, nome, Via, telefono, agente, ruolo, stipendio):
+def db_create(connessione, tabell, nome, Via, telefono, agente, ruolo, stipendio):
     conn = mysql.connector.connect(
         host="10.0.0.10",
         user="david_savin",
