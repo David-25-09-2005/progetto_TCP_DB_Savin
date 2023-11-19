@@ -4,6 +4,8 @@ import mysql.connector
 import facilities as fa
 
 
+
+
 def db_set(data):
     conn = mysql.connector.connect(
         host="10.10.0.10",
