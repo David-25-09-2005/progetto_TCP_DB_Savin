@@ -142,7 +142,7 @@ def read(connessione, tabella):
 
 def db_update(connessione, tabella, campo, id_dipendente):
     """
-    cconn = mysql.connector.connect(
+    conn = mysql.connector.connect(
         host="10.10.0.10",
         user="david_savin",
         password="savin1234",
