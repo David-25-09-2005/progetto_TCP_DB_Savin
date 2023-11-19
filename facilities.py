@@ -5,6 +5,7 @@ import pickle
 import mysql.connector
 from mysql.connector import Error
 
+
 def string_to_bytes(data):
     """
     metodo per trasformare le stringhe in bytes prima di inviarle con l'utilizzo del metodo send
