@@ -60,7 +60,7 @@ def gestisci_comunicazione(conn):
             campo = conn.recv(1024).decode()
             conn.send("Inserisci l'ID del dipendente: ".encode())
             id_dipendente = conn.recv(1024).decode()
-            db_update(conn, tabella, campo, id_dipendente)
+            dato = db_update(conn, tabella, campo, id_dipendente)
 
         #connessione, tabella, nome, Via, telefono, agente, ruolo, stipendi
         elif (data == "I"):
@@ -140,10 +140,11 @@ def read(connessione, tabella):
 
 def db_update(connessione, tabella, campo, id_dipendente):
     """
-    conn = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        database="5atepsit",
+    cconn = mysql.connector.connect(
+        host="10.10.0.10",
+        user="david_savin",
+        password="savin1234",
+        database="5ATepsit",
         port=3306,
     )"""
     
@@ -154,7 +155,7 @@ def db_update(connessione, tabella, campo, id_dipendente):
         database="5ATepsit",
         port=3306,
     )
-    query = f"UPDATE {tabella} SET numero_clienti = \'{campo}\' WHERE id_dipendente = \'{id_dipendente}\'"
+    query = f"UPDATE clienti_david_savin SET numero_clienti = \'{campo}\' WHERE id_dipendente = \'{id_dipendente}\'"
     print(query)
     cur = conn.cursor()
     # inserisci gestione filtri di ricerca
