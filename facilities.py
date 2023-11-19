@@ -70,4 +70,3 @@ def bytes_to_dict(data):
         raise Exception("devi passare dei bytes alla funzione bytes_to_dict")
 
     return pickle.loads(data)
-
